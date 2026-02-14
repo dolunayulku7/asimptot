@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --lacivert: #000080; /* Tam Lacivert */
+            --primary-blue: #003366;
             --quanta-black: #121212;
             --quanta-gray: #666;
             --bg-color: #ffffff;
@@ -39,7 +39,7 @@
             font-weight: 800;
             letter-spacing: -1px;
             font-size: 1.5rem;
-            color: var(--lacivert);
+            color: #000;
             text-decoration: none;
         }
 
@@ -53,50 +53,37 @@
             text-transform: uppercase;
         }
 
-        /* GÜNCELLENEN HEADER: Resim Orijinal Boyutta */
+        /* Quanta Tarzı Header */
         header {
-            padding: 100px 4%;
+            padding: 80px 4%;
             text-align: center;
-            border-bottom: 1px solid #eee;
-            
-            /* Arka plan ayarları */
-            background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('header-bg.jpg');
-            background-size: contain; /* Resmi kesmez, orijinal boyutunda sığdırır */
+            border-bottom: 1px solid #000;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('header-bg.jpg');
+            background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            background-color: #f9f9f9; /* Resmin dışında kalan yerler için hafif gri ton */
-            
-            min-height: 300px; /* Resmin görünmesi için minimum yükseklik */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
 
         header h1 {
             font-family: 'Work Sans', sans-serif;
             font-weight: 800;
-            font-size: 5.5rem; /* Biraz daha büyüttük */
+            font-size: 5rem;
             margin: 0;
-            letter-spacing: -3px;
-            color: var(--lacivert); /* Başlık artık Lacivert */
-            text-shadow: 2px 2px 15px rgba(255,255,255,0.9);
+            letter-spacing: -2px;
+            color: #000;
         }
 
         header .slogan {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
-            font-size: 1.3rem;
-            margin-top: 15px;
-            color: #111;
-            font-weight: bold;
-            text-shadow: 1px 1px 10px rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #222;
         }
 
         /* Ana Izgara (Grid) Yapısı */
         .main-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr; /* Quanta'nın imza dizilimi */
             gap: 40px;
             padding: 40px 4%;
             max-width: 1400px;
@@ -109,6 +96,14 @@
             text-decoration: none;
             color: inherit;
             display: block;
+        }
+
+        .card:hover h3 {
+            color: var(--primary-blue);
+        }
+
+        .featured {
+            grid-column: span 1; /* İlk büyük makale */
         }
 
         .card img {
@@ -124,7 +119,7 @@
             font-weight: 600;
             font-size: 0.75rem;
             text-transform: uppercase;
-            color: var(--lacivert);
+            color: var(--primary-blue);
             letter-spacing: 1px;
             margin-bottom: 10px;
             display: block;
@@ -144,6 +139,7 @@
             color: var(--quanta-gray);
         }
 
+        /* Yorum Alanı Konteynırı */
         .discussion-container {
             max-width: 800px;
             margin: 60px auto;
@@ -158,10 +154,14 @@
             font-family: 'Work Sans', sans-serif;
             font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
+        /* Mobil Uyumluluk */
         @media (max-width: 900px) {
-            .main-grid { grid-template-columns: 1fr; }
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
             header h1 { font-size: 3rem; }
         }
     </style>
@@ -184,30 +184,30 @@
     </header>
 
     <main class="main-grid">
-        <a href="#" class="card">
-            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800">
+        <a href="#" class="card featured">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800" alt="Fizik">
             <span class="category-label">Parçacık Fiziği</span>
-            <h3>Python ile Rutherford Saçılma Deneyi</h3>
-            <p>Atomun yapısını simülasyonlar üzerinden keşfediyoruz.</p>
+            <h3>Python ile Rutherford Saçılma Deneyi: Atomun Kalbine Yolculuk</h3>
+            <p>Monte Carlo simülasyonları kullanarak alfa parçacıklarının altın çekirdeği etrafındaki rastsal dansını modelledik. Verinin fiziği nasıl şekillendirdiğini keşfedin.</p>
         </a>
 
         <a href="#" class="card">
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800">
-            <span class="category-label">Kuantum</span>
-            <h3>QSB Tabusu Etkinliği</h3>
-            <p>Eğlenceli fizik tartışmaları.</p>
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="Kuantum">
+            <span class="category-label">Kuantum Kulübü</span>
+            <h3>QSB Tabusu: Kuantum Mekaniğini Eğlenerek Öğrenmek</h3>
+            <p>Kocaeli Üniversitesi bünyesindeki etkinliğimizde karmaşık teorileri oyunlarla basite indirgedik.</p>
         </a>
 
         <a href="#" class="card">
-            <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800">
+            <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800" alt="Laboratuvar">
             <span class="category-label">Akademik</span>
-            <h3>CERN Hedefleri</h3>
-            <p>Fizik öğrencilerinin kariyer basamakları.</p>
+            <h3>CERN Yolunda Bir Fizik Öğrencisi</h3>
+            <p>TÜBİTAK ve ASELSAN gibi kurumlarda staj yapma stratejileri ve parçacık fiziği sertifikasyon süreci.</p>
         </a>
     </main>
 
     <div class="discussion-container">
-        <h2 style="font-family: 'Work Sans'; border-bottom: 2px solid var(--lacivert); padding-bottom: 10px;">Tartışma</h2>
+        <h2 style="font-family: 'Work Sans'; border-bottom: 2px solid #000; padding-bottom: 10px;">Tartışma</h2>
         <script src="https://giscus.app/client.js"
                 data-repo="dolunayulku7/asimptot"
                 data-repo-id="R_kgDORQcAcw"
@@ -215,6 +215,7 @@
                 data-mapping="pathname"
                 data-strict="0"
                 data-reactions-enabled="1"
+                data-emit-metadata="0"
                 data-input-position="top"
                 data-theme="light"
                 data-lang="tr"
@@ -224,7 +225,7 @@
     </div>
 
     <footer>
-        &copy; 2026 ASİMPTOT | ASYMPTOTE MAGAZINE
+        &copy; 2026 ASİMPTOT | ASYMPTOTE MAGAZINE | TÜM HAKLARI SAKLIDIR
     </footer>
 
 </body>
