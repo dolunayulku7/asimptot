@@ -7,10 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #003366; /* Koyu Mavi */
-            --light-bg: #fdfdfd;    /* Açık arka plan */
+            --primary-blue: #003366; 
+            --light-bg: #fdfdfd;    
             --text-dark: #222;
-            --accent-blue: #00509d;
         }
 
         body {
@@ -21,13 +20,12 @@
             line-height: 1.8;
         }
 
-        /* Navigasyon Barı */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
@@ -52,75 +50,93 @@
         }
 
         .login { color: var(--primary-blue); }
-        .register { 
-            background: var(--primary-blue); 
-            color: white !important; 
-            margin-left: 10px;
-        }
+        .register { background: var(--primary-blue); color: white !important; margin-left: 10px;}
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            border-bottom: 4px solid var(--primary-blue);
-            background: #fff;
+            padding: 120px 20px;
+            border-bottom: 5px solid var(--primary-blue);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         h1 {
             font-family: 'Work Sans', sans-serif;
             font-weight: 600;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             color: var(--primary-blue);
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 0;
+            text-shadow: 2px 2px 10px rgba(255,255,255,1);
         }
 
         .slogan {
             font-family: 'Work Sans', sans-serif;
-            font-weight: 300;
-            color: #666;
-            font-size: 1.1rem;
+            font-weight: 400;
+            color: #333;
+            font-size: 1.2rem;
             margin-top: 10px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 50px auto;
             padding: 0 20px;
         }
 
-        .article-main {
-            margin-bottom: 60px;
-        }
-
         .category {
             font-family: 'Work Sans', sans-serif;
-            color: var(--accent-blue);
+            color: #00509d;
             text-transform: uppercase;
             font-weight: 600;
             font-size: 0.8rem;
-            letter-spacing: 1px;
         }
 
         h2 {
             font-family: 'Work Sans', sans-serif;
             font-size: 2.2rem;
             color: var(--primary-blue);
-            margin: 10px 0 20px 0;
+            margin: 10px 0;
         }
 
-        /* Yorum Bölümü */
-        .comment-section {
+        /* --- YORUM VE TARTIŞMA ALANI --- */
+        .discussion-panel {
             margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid #ddd;
+            padding: 40px;
+            background: #f4f7f9;
+            border-radius: 12px;
+            border-left: 8px solid var(--primary-blue);
         }
 
-        .comment-box {
-            background: #f9f9f9;
-            padding: 20px;
+        .discussion-header {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .comment-placeholder {
+            background: white;
+            padding: 30px;
             border-radius: 8px;
-            border: 1px dashed var(--primary-blue);
+            border: 1px solid #d1d9e0;
             text-align: center;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .comment-btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
             font-family: 'Work Sans', sans-serif;
         }
 
@@ -130,7 +146,7 @@
             text-align: center;
             padding: 30px;
             font-family: 'Work Sans', sans-serif;
-            font-size: 0.8rem;
+            margin-top: 100px;
         }
     </style>
 </head>
@@ -154,36 +170,36 @@
     </header>
 
     <div class="container">
-        <article class="article-main">
+        <article>
             <div class="category">Parçacık Fiziği & Yazılım</div>
             <h2>Python ile Rutherford Saçılma Simülasyonu</h2>
             <p>
-                Fizik dünyasında bir devrim olan Rutherford deneyi, atomun yapısını anlamamızı sağladı. 
-                Bu yazıda, Python kullanarak bu saçılma olayını nasıl simüle ettiğimizi ve 
-                olasılık dağılımlarını nasıl modellediğimizi inceleyeceğiz...
+                Rutherford deneyi, atomun yapısını anlamada tarihin en önemli dönüm noktalarından biridir. 
+                Burada, alfa parçacıklarının saçılmasını Python ile nasıl modellediğimi ve 
+                olasılık bulutlarını nasıl görselleştirdiğimi anlatacağım. Fizik ve yazılımın kesişim kümesine hoş geldiniz.
             </p>
-            </article>
+        </article>
 
-        <section class="comment-section">
-            <h4 style="font-family: 'Work Sans';">Tartışmaya Katıl</h4>
-            <script src="https://giscus.app/client.js"
+        <section class="discussion-panel">
+            <div class="discussion-header">
+                💬 Tartışma Paneli
+            <div class="comment-placeholder">
+    <script src="https://giscus.app/client.js"
         data-repo="dolunayulku7/asimptot"
-        data-repo-id="R_kgDORQcAcw"
-        data-category="[KATEGORİ İSMİ GİRİN]"
-        data-category-id="[KATEGORİ ID GİRİN]"
+        data-repo-id="R_kgDON7u7iA" 
+        data-category="Announcements"
+        data-category-id="DIC_kwDON7u7iM4CnK4-"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="top"
-        data-theme="noborder_gray"
+        data-theme="light"
         data-lang="tr"
         crossorigin="anonymous"
         async>
-</script>
-                <p>Yorum yapmak ve tartışmaya katılmak için giriş yapmalısınız.</p>
-                <small>Not: Yakında Giscus altyapısı ile aktif edilecektir.</small>
-            </div>
+    </script>
+</div>
         </section>
     </div>
 
@@ -192,6 +208,4 @@
     </footer>
 
 </body>
-
 </html>
-
